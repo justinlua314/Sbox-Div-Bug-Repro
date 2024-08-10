@@ -1,0 +1,85 @@
+DivProblem {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	font-weight: bold;
+	font-family: Poppins;
+	background-color: #766480;
+	display: flex;
+	flex-direction: row;
+	pointer-events: all;
+
+	.tier-guesses {
+		flex-direction: column;
+		width: 20%;
+		padding-top: 1%;
+	}
+
+	.tier {
+		width: 100%;
+		height: 80px;
+		margin-bottom: 10px;
+		position: relative;
+	}
+
+	.placement {
+		width: 30%;
+		background-color: #2639b0;
+		border-color: #000;
+		border-width: 2px;
+		justify-content: center;
+		align-items: center;
+		font-size: 44px;
+	}
+
+	.guess {
+		flex-grow: 1;
+		background-color: #c5c5c9;
+		border-color: #000;
+		border-width: 2px;
+		justify-content: center;
+		align-items: center;
+		font-size: 42px;
+	}
+
+	.number-roller {
+		width: 80%;
+		align-items: center;
+		flex-direction: column;
+		padding: 1%;
+	}
+
+	.new-number {
+		font-size: 48px;
+		margin-top: 20px;
+		width: 60%;
+		height: 10%;
+		background-color: #74b540;
+		border-color: #000;
+		border-width: 2px;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
+
+	.end-game-buttons {
+		margin-top: 20px;
+		flex-direction: row;
+		width: 60%;
+		height: 10%;
+		justify-content: center;
+	}
+
+	.go-agane {
+		font-size: 48px;
+		background-color: #679c7c;
+		border-color: #000;
+		border-width: 2px;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+		padding: 10px;
+	}
+}

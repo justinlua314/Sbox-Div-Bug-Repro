@@ -1,0 +1,58 @@
+@using Sandbox;
+@using Sandbox.UI;
+@inherits PanelComponent
+
+<root>
+	<div class="tier-guesses">
+		@for (int tier = 0; tier < 5; tier++) {
+			<div class="tier" style="height:@(80 / 5)%">
+				<div class="placement">@(tier + 1)</div>
+				<div class="guess">@GuessString(tier)</div>
+			</div>
+		}
+	</div>
+
+	<div class="number-roller">
+		<button class="new-number" onclick=@PlaceNumber>New Number</button>
+
+		<div class="end-game-buttons">
+			<button class="go-agane" onclick=@Reset>
+				Play Again
+			</button>
+		</div>
+	</div>
+</root>
+
+@code {
+	List<int> Guesses = new();
+	int CurIndex = 0;
+
+	string GuessString(int placement) {
+		return Guesses[placement] == 0 ? "" : $"{Guesses[placement]}";
+	}
+
+	void PlaceNumber() {
+		Guesses[CurIndex] = 1;
+		CurIndex++;
+
+		if (CurIndex == 5) {
+			CurIndex = 0;
+		}
+	}
+
+	void Reset() {
+		Guesses.Clear();
+
+		for (int i = 1; i <= 5; i++) {
+			Guesses.Add(0);
+		}
+
+		Log.Info(string.Join(", ", Guesses));
+	}
+
+	protected override void OnStart() {
+		Reset();
+	}
+
+	protected override int BuildHash() => System.HashCode.Combine(CurIndex, Guesses);
+}
